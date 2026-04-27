@@ -15,7 +15,6 @@
 
 <body class="layout page-map">
 
-<!-- NAVBAR -->
 <header class="map-header">
   <div class="header-brand">
     <div class="header-icon"></div>
@@ -28,10 +27,8 @@
   </nav>
 </header>
 
-<!-- MAP CONTAINER -->
 <div class="map-wrapper">
 
-  <!-- MAP -->
   <div id="map"></div>
 
   <div id="sidebar" class="sidebar-compact">
@@ -110,7 +107,6 @@
     </div>
   </div>
 
-  <!-- LEGEND -->
   <div id="legend" class="legend">
     <div class="legend-toggle" id="legendToggle">📋 Legenda</div>
     <div class="legend-body" id="legendBody">
@@ -134,12 +130,11 @@
     🖱️ Klik di mana saja untuk analisis buffer risiko bencana
   </div>
 
-</div><!-- end map-wrapper -->
+</div>
 
 <script src="script.js"></script>
 
 <script>
-  // Sidebar toggle
   document.getElementById("toggleSidebar").onclick = () => {
     document.getElementById("sidebarPanel").classList.toggle("open");
   };
@@ -147,7 +142,6 @@
     document.getElementById("sidebarPanel").classList.remove("open");
   };
 
-  // Legend toggle
   document.getElementById("legendToggle").onclick = () => {
     document.getElementById("legendBody").classList.toggle("open");
   };
