@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>WebGIS Bencana Semarang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="layout page-home">
+
+<header>
+  <div class="header-brand">
+    <div class="header-icon"></div>
+    <h1>WebGIS Bencana Kota Semarang</h1>
+  </div>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="Map.html">Peta</a>
+    <a href="Portofolio.html">Portofolio</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-badge">Platform Geospasial Interaktif</div>
+  <h2>WebGIS Informasi Bencana<br><span class="hero-highlight">Kota Semarang</span></h2>
+  <p class="hero-desc">
+    Platform berbasis geospasial untuk memantau, menganalisis, dan memvisualisasikan risiko bencana secara interaktif. Data terintegrasi dari berbagai sumber untuk mendukung pengambilan keputusan berbasis spasial.
+  </p>
+  <div class="hero-actions">
+    <a href="Map.html" class="btn-hero">
+      <span>Mulai Eksplorasi →</span>
+    </a>
+    <div class="hero-tip">
+      <span class="tip-icon">💡</span>
+      <span>Klik pada peta untuk menghasilkan buffer analisis risiko otomatis</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">16</div>
+      <div class="stat-label">Kecamatan</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Jenis Bencana</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Kelas Risiko</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BANJIR -->
+<section class="info-section">
+  <div class="section-header">
+    <div class="section-tag flood-tag">🌊 Banjir</div>
+    <h3>Risiko Banjir di Kota Semarang</h3>
+    <p>Semarang menghadapi ancaman banjir akibat kombinasi rob, curah hujan tinggi, dan penurunan muka tanah (land subsidence) yang signifikan.</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card flood-card">
+      <div class="info-card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Banjir_rob_Semarang_Utara.jpg/800px-Banjir_rob_Semarang_Utara.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1547683905-f686c993aae5?w=600&q=80'"
+             alt="Banjir Rob Semarang" loading="lazy">
+        <div class="img-overlay">
+          <span>Rob & Banjir Pesisir</span>
+        </div>
+      </div>
+      <div class="info-card-body">
+        <h4>Banjir Rob & Genangan</h4>
+        <p>Wilayah pesisir seperti Kecamatan Semarang Utara, Semarang Barat, dan Genuk secara rutin mengalami banjir rob yang memperparah genangan akibat hujan. Kawasan Tambakloro dan Bandarharjo menjadi titik terdampak paling parah.</p>
+        <div class="risk-pills">
+          <span class="pill pill-red">Tinggi</span>
+          <span class="pill pill-orange">Cukup Tinggi</span>
+          <span class="pill pill-yellow">Sedang</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card flood-card">
+      <div class="info-card-img">
+        <img src="Penurunan_Permukaan_Tanah.JPG"
+             alt="Penurunan Permukaan Tanah Semarang" loading="lazy">
+        <div class="img-overlay">
+          <span>Penurunan Muka Tanah</span>
+        </div>
+      </div>
+      <div class="info-card-body">
+        <h4>Penyebab Utama Banjir</h4>
+        <ul class="info-list">
+          <li>🔻 Penurunan muka tanah (land subsidence) hingga 10–25 cm/tahun</li>
+          <li>🌧️ Curah hujan tinggi saat musim penghujan</li>
+          <li>🌊 Pasang laut (rob) yang semakin meningkat</li>
+          <li>🚧 Kapasitas drainase kota yang tidak memadai</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-highlight flood-highlight">
+      <div class="highlight-icon">⚠️</div>
+      <div>
+        <strong>Wilayah Terdampak Banjir:</strong> Kecamatan Semarang Utara, Genuk, Pedurungan, Gayamsari, Semarang Barat
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO LONGSOR -->
+<section class="info-section">
+  <div class="section-header">
+    <div class="section-tag landslide-tag">⛰️ Longsor</div>
+    <h3>Risiko Longsor di Kota Semarang</h3>
+    <p>Kawasan perbukitan di bagian selatan Semarang memiliki kerentanan longsor yang tinggi, terutama saat musim hujan dengan intensitas tinggi.</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card landslide-card">
+      <div class="info-card-img">
+        <img src="Longsor.JPEG"
+             alt="Longsor Perbukitan Semarang" loading="lazy">
+        <div class="img-overlay landslide-overlay">
+          <span>Longsor Perbukitan</span>
+        </div>
+      </div>
+      <div class="info-card-body">
+        <h4>Longsor di Kawasan Perbukitan</h4>
+        <p>Kecamatan Tembalang, Banyumanik, Gunungpati, dan Mijen memiliki kondisi geologi dan topografi yang rentan longsor. Lereng curam dengan penutup lahan yang berkurang mempercepat risiko ini.</p>
+        <div class="risk-pills">
+          <span class="pill pill-brown">Tinggi</span>
+          <span class="pill pill-orange">Cukup Tinggi</span>
+          <span class="pill pill-yellow">Sedang</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card landslide-card">
+      <div class="info-card-img">
+        <img src="Kawasan_Longsor.JPG"
+             alt="Kawasan Rawan Longsor Semarang" loading="lazy">
+        <div class="img-overlay landslide-overlay">
+          <span>Kawasan Rawan Longsor</span>
+        </div>
+      </div>
+      <div class="info-card-body">
+        <h4>Faktor Pemicu Longsor</h4>
+        <ul class="info-list">
+          <li>🏔️ Kemiringan lereng yang curam (>30°)</li>
+          <li>🌧️ Curah hujan ekstrem dalam waktu singkat</li>
+          <li>🪨 Kondisi geologi tanah lempung yang mudah jenuh air</li>
+          <li>🌳 Alih fungsi lahan dan pengurangan vegetasi penutup</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-highlight landslide-highlight">
+      <div class="highlight-icon">⚠️</div>
+      <div>
+        <strong>Wilayah Terdampak Longsor:</strong> Kecamatan Tembalang, Banyumanik, Gunungpati, Mijen, Ngaliyan
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY TELLING -->
+<section class="story">
+  <div class="story-header">
+    <h3>Fitur Platform</h3>
+  </div>
+
+  <div class="story-box">
+    <div class="story-icon">🗺️</div>
+    <h3>Peta Interaktif</h3>
+    <p>Visualisasikan sebaran risiko banjir dan longsor secara spasial dengan data GeoJSON terintegrasi langsung dari server geospasial.</p>
+  </div>
+
+  <div class="story-box">
+    <div class="story-icon">🎯</div>
+    <h3>Buffer Scoring</h3>
+    <p>Klik sembarang titik di peta untuk menghasilkan zona buffer dan analisis skor risiko bencana secara otomatis dan real-time.</p>
+  </div>
+
+  <div class="story-box">
+    <div class="story-icon">📍</div>
+    <h3>Lokasi & Geocoding</h3>
+    <p>Gunakan GPS untuk menemukan lokasi Anda, atau cari alamat untuk langsung melihat tingkat risiko bencana di area tersebut.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Zahran Sofyan Falahuddin — WebGIS Bencana Kota Semarang</p>
+</footer>
+
+</body>
+</html>
