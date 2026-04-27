@@ -3,7 +3,6 @@ const basemaps = {
   satellite: "https://basemap.mapid.io/styles/satellite/style.json?key=69b3a9a44fccf23b9573e636"
 };
 
-// ================= MAP =================
 const map = new maplibregl.Map({
   container: "map",
   style: basemaps.street,
@@ -18,7 +17,6 @@ let layersLoaded = false;
 let activePopup = null;
 
 
-// ================= SWITCH BASEMAP =================
 function switchBasemap(type){
 
   document.querySelectorAll(".basemap-btn").forEach(btn=>{
@@ -30,8 +28,7 @@ function switchBasemap(type){
 
   map.setStyle(basemaps[type]);
 
-  // tunggu style + tile selesai total
-  map.once("idle", function(){
+    map.once("idle", function(){
 
       if(layersLoaded){
         addDataLayers();
@@ -45,13 +42,13 @@ function switchBasemap(type){
 }
 
 
-// ================= SIDEBAR =================
+// sidebar
 document.getElementById("toggleSidebar").onclick = ()=>{
   document.getElementById("sidebar").classList.toggle("open");
 };
 
 
-// ================= COLOR =================
+// warna
 function getColor(kelas){
   switch(kelas){
     case "Sangat Rendah": return "#00ff00";
@@ -64,7 +61,7 @@ function getColor(kelas){
 }
 
 
-// ================= DATA URL =================
+// api data
 const urls = {
  banjir:"https://geoserver.mapid.io/layers_new/get_layer?api_key=f55347c906cd4131bfb783010b859464&layer_id=69cdce71e4fe4912fbe3c3d7&project_id=69cdcdd9b4892398f35ba1dc",
 
@@ -72,21 +69,18 @@ const urls = {
 };
 
 
-// ================= ADD DATA LAYER =================
 function addDataLayers(){
 
  if(!dataStore.banjir || !dataStore.longsor){
    return;
  }
 
- // bersihkan jika ada
- ["banjir","longsor","buffer"].forEach(id=>{
+  ["banjir","longsor","buffer"].forEach(id=>{
     if(map.getLayer(id)) map.removeLayer(id);
     if(map.getSource(id)) map.removeSource(id);
  });
 
 
-// -------- BANJIR --------
 map.addSource("banjir",{
  type:"geojson",
  data:dataStore.banjir
@@ -111,7 +105,7 @@ map.addLayer({
 });
 
 
-// -------- LONGSOR --------
+// longsor
 map.addSource("longsor",{
  type:"geojson",
  data:dataStore.longsor
@@ -136,7 +130,6 @@ map.addLayer({
 });
 
 
-// -------- RESTORE BUFFER --------
 if(bufferGeojson){
 
  const bufferChecked = document.getElementById("toggleBuffer")?.checked !== false;
@@ -162,7 +155,6 @@ if(bufferGeojson){
 }
 
 
-// restore toggle
 const banjirVisible=document.getElementById("toggleBanjir")?.checked;
 const longsorVisible=document.getElementById("toggleLongsor")?.checked;
 
@@ -177,7 +169,6 @@ if(longsorVisible===false){
 }
 
 
-// ================= LOAD DATA =================
 map.on("load", async ()=>{
 
  try{
@@ -216,7 +207,7 @@ map.on("load", async ()=>{
 });
 
 
-// ================= BUFFER =================
+// buffer
 function createBuffer(lng,lat){
 
  let radius=Number(
@@ -261,8 +252,6 @@ function createBuffer(lng,lat){
 }
 
 
-
-// ================= ANALYSIS =================
 function analyzeRisk(){
 
  let banjirScore=0;
@@ -317,10 +306,8 @@ function analyzeRisk(){
 
 
 
-// ================= CLICK =================
 map.on("click",(e)=>{
 
- // Jika toggle buffer mati, abaikan klik
  const bufferToggle = document.getElementById("toggleBuffer");
  if(bufferToggle && !bufferToggle.checked) return;
 
@@ -340,7 +327,6 @@ map.on("click",(e)=>{
 });
 
 
-// ================= TOGGLE =================
 function setupToggle(){
 
 document.getElementById("toggleBanjir").onchange=e=>
@@ -357,7 +343,6 @@ document.getElementById("toggleLongsor").onchange=e=>
    e.target.checked ? "visible":"none"
  );
 
-// Toggle Buffer
 document.getElementById("toggleBuffer").onchange=e=>{
  if(e.target.checked){
    if(bufferGeojson && map.getSource("buffer")){
@@ -369,7 +354,7 @@ document.getElementById("toggleBuffer").onchange=e=>{
    if(map.getLayer("buffer")){
      map.setLayoutProperty("buffer","visibility","none");
    }
-   // Hapus popup: remove() + null agar tidak bisa addTo lagi
+   
    if(activePopup){
      activePopup.remove();
      activePopup = null;
@@ -384,7 +369,6 @@ document.getElementById("toggleBuffer").onchange=e=>{
 
 
 
-// ================= SLIDER =================
 document.getElementById("radiusSlider")
 .addEventListener("input",function(){
 
@@ -394,8 +378,6 @@ document.getElementById(
 
 });
 
-
-// ================= GPS =================
 function getLocation(){
 
 navigator.geolocation.getCurrentPosition(pos=>{
@@ -412,8 +394,6 @@ navigator.geolocation.getCurrentPosition(pos=>{
 
 }
 
-
-// ================= GEOCODER =================
 function geocodeAlamat(){
 
 let alamat=document.getElementById("alamat").value;
